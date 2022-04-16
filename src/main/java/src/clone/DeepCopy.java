@@ -1,12 +1,9 @@
 package src.clone;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import src.clone.entity.Student;
+import src.clone.entity.Teacher;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 深拷贝
@@ -51,54 +48,5 @@ public class DeepCopy {
         System.out.println("修改之后: " + student2.getTeacher().getStudentNumList());
         System.out.println("修改之后: " + student2.getTeacher().getName());
     }
-}
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-class Teacher implements Cloneable {
-    private String name;
-    private int age;
-    //保存学生学号
-    private List<String> studentNumList;
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        Teacher teacher = (Teacher) super.clone();
-
-        List<String> studentNumList = teacher.getStudentNumList();
-        List<String> temp = new ArrayList<>(studentNumList);
-        teacher.setStudentNumList(temp);
-        return teacher;
-    }
-
-}
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-class Student implements Cloneable {
-    private String name;
-    private int age;
-    private Teacher teacher;
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        // 浅复制时：
-        // Object object = super.clone();
-        // return object;
-
-        //super.clone(); 是一个浅拷贝
-        // (本质调用的是object.clone())
-
-        // 改为深复制：
-        Student result = (Student) super.clone(); //在内存中 新增了一个 保存的引用地址 (在这一步: 还是用的原对象的地址)
-        //
-        result.setTeacher((Teacher) result.getTeacher().clone());
-        return result;
-    }
-
 }
 
