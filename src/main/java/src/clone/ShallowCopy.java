@@ -1,11 +1,16 @@
 package src.clone;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 浅拷贝
  */
+@Getter
+@Setter
 class ShallowCopy implements Cloneable {
     String name;
     int likes;

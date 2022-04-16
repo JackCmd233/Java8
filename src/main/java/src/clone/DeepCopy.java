@@ -1,5 +1,10 @@
 package src.clone;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,34 +53,15 @@ public class DeepCopy {
     }
 }
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 class Teacher implements Cloneable {
     private String name;
     private int age;
-    private List<String> studentNumList; //保存学生学号
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public List<String> getStudentNumList() {
-        return studentNumList;
-    }
-
-    public void setStudentNumList(List<String> studentNumList) {
-        this.studentNumList = studentNumList;
-    }
+    //保存学生学号
+    private List<String> studentNumList;
 
     @Override
     public Object clone() throws CloneNotSupportedException {
@@ -89,41 +75,20 @@ class Teacher implements Cloneable {
 
 }
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 class Student implements Cloneable {
     private String name;
     private int age;
     private Teacher teacher;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
 
     @Override
     public Object clone() throws CloneNotSupportedException {
         // 浅复制时：
         // Object object = super.clone();
         // return object;
-
 
         //super.clone(); 是一个浅拷贝
         // (本质调用的是object.clone())
