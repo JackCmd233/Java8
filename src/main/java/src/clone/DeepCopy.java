@@ -3,6 +3,9 @@ package src.clone;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 深拷贝
+ */
 public class DeepCopy {
     public static void main(String[] args) throws Exception {
         Teacher teacher = new Teacher();

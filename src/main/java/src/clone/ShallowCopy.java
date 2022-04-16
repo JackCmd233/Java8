@@ -3,9 +3,10 @@ package src.clone;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 浅拷贝
+ */
 class ShallowCopy implements Cloneable {
-
-    // 声明变量
     String name;
     int likes;
     List<String> numList;
@@ -38,6 +39,17 @@ class ShallowCopy implements Cloneable {
             System.out.println(obj2);
         } catch (Exception e) {
             System.out.println(e);
+        }
+    }
+
+    @Override
+    public ShallowCopy clone() {
+        try {
+            ShallowCopy clone = (ShallowCopy) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
         }
     }
 
