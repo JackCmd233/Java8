@@ -12,8 +12,11 @@ public class FunctionRefTest06 {
         System.out.println(sup.get());
         // 然后通过 方法引用来实现
         Supplier<Person> sup1 = Person::new;
+        //无参
         System.out.println(sup1.get());
-        BiFunction<String,Integer,Person> function = Person::new;
+
+        BiFunction<String, Integer, Person> function = Person::new;
+        //有参
         System.out.println(function.apply("张三",22));
     }
 }

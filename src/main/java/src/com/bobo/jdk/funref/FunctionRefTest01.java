@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 public class FunctionRefTest01 {
 
     public static void main(String[] args) {
-        printMax(a->{
+        printSum(a->{
             // Lambda表达式中的代码和 getTotal中的代码冗余了
             int sum = 0;
             for (int i : a) {
@@ -27,7 +27,7 @@ public class FunctionRefTest01 {
         System.out.println("数组之和：" + sum);
     }
 
-    private static void printMax(Consumer<int[]> consumer){
+    private static void printSum(Consumer<int[]> consumer){
         int[] a= {10,20,30,40,50,60};
         consumer.accept(a);
     }
