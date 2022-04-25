@@ -1,6 +1,5 @@
 package src.com.bobo.jdk.stream;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class StreamTest17Reduce {
@@ -11,7 +10,7 @@ public class StreamTest17Reduce {
                 // 第一次的时候会将默认值赋值给x
                 // 之后每次会将 上一次的操作结果赋值给x y就是每次从数据中获取的元素
                 .reduce(0, (x, y) -> {
-                    System.out.println("x="+x+",y="+y);
+                    System.out.println("x=" + x + ",y=" + y);
                     return x + y;
                 });
         System.out.println(sum);
