@@ -19,7 +19,6 @@ public class FunctionRefTest05 {
         //Function<String,Integer> function2 = String::substring;
 
         Function<String, Integer> function2 = String::length;
-
         function2.apply("HelloWorld");
         //System.out.println(msg);
 

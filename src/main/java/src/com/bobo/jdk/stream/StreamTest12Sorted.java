@@ -11,6 +11,5 @@ public class StreamTest12Sorted {
                  //.sorted() // 根据数据的自然顺序排序
                  .sorted((o1,o2)->o2-o1) // 根据比较强指定排序规则
                  .forEach(System.out::println);
-
     }
 }
