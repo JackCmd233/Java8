@@ -18,7 +18,7 @@
 
 需要实现根据传入的方法不同，有不同的打印格式。
 
-```Java
+```jshelllanguage
 static void executeFunc(方法？？,String word) {
     // todo 用传入的方法打印word变量
 }
@@ -52,7 +52,7 @@ class Solution {
 
 调用
 
-```Java
+```jshelllanguage
 public static void main(String[] args) {
         executeFunc(new Wrapper() {
             @Override
@@ -67,7 +67,7 @@ public static void main(String[] args) {
 
 ### Lambda写法
 
-```Java
+```jshelllanguage
 public static void main(String[] args) {
     executeFunc(w -> {
         // 个性化拓展，例如在打印之前记录时间什么的
@@ -873,7 +873,7 @@ void forEach(Consumer<? super T> action);
 ```java
 public static void main(String[] args) {
     Stream.of("a1", "a2", "a3").forEach(System.out::println);; 
- }
+    }
 ```
 
 
@@ -967,7 +967,7 @@ public static void main(String[] args) {
     Stream.of("a1", "a2", "a3","bb","cc","aa","dd") 
         .limit(3)
         .forEach(System.out::println); 
- }
+    }
 ```
 
 打印结果:
@@ -1003,7 +1003,7 @@ public static void main(String[] args) {
     Stream.of("a1", "a2", "a3","bb","cc","aa","dd") 
         .skip(3)
         .forEach(System.out::println); 
- }
+    }
 ```
 
 输出:

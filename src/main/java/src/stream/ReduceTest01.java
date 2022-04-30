@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class reduceTest01 {
+public class ReduceTest01 {
     public static void main(String[] args) {
         List<Person2> Person2List = new ArrayList<Person2>();
         Person2List.add(new Person2("Tom", 8900, 23, "male", "New York"));
@@ -26,17 +26,27 @@ public class reduceTest01 {
         Integer maxSalary = Person2List.stream().reduce(0, (max, p) -> max > p.getSalary() ? max : p.getSalary(),
                 Integer::max);
         // 求最高工资方式2：
-        Integer maxSalary2 = Person2List.stream().reduce(0, (max, p) -> max > p.getSalary() ? max : p.getSalary(),
+        Integer maxSalary2 = Person2List.stream().reduce(0,
+                (max, p) -> max > p.getSalary() ? max : p.getSalary(),
                 (max1, max2) -> max1 > max2 ? max1 : max2);
+
+        // 三个参数
+        Integer reduce = Person2List.stream().reduce(0,
+                (max, p) -> {
+                    /* 这段会执行*/
+                    System.out.println("执行累加器");
+                    return max > p.getSalary() ? max : p.getSalary();
+                },
+                (max1, max2) -> {
+                    /* 不会执行的 */
+                    System.out.println("combiner");
+                    return max1;
+                });
 
         System.out.println("工资之和：" + sumSalary.get() + "," + sumSalary2 + "," + sumSalary3);
         System.out.println("最高工资：" + maxSalary + "," + maxSalary2);
     }
-
-
 }
-
-
 
 
 class Person2 {
@@ -47,7 +57,7 @@ class Person2 {
     private String area;  // 地区
 
     // 构造方法
-    public Person2(String name, int salary, int age,String sex,String area) {
+    public Person2(String name, int salary, int age, String sex, String area) {
         this.name = name;
         this.salary = salary;
         this.age = age;
@@ -57,10 +67,6 @@ class Person2 {
 
     public Person2() {
     }
-
-    // 省略了get和set，请自行添加
-
-
 
     public String getName() {
         return name;
